@@ -1,9 +1,31 @@
-import axios from "axios";
+import useSwr from "swr";
 
-export const getNfts = async (address) => {
-  const url = "http://localhost:3001/getNfts?address=" + address;
+import { fetcher } from "./fetcher";
 
-  const response = await axios.get(url);
+const sortNfts = (nfts) => {
+  const res = [];
 
-  return response.data;
+  if (nfts) {
+    nfts?.map((nft) => {
+      nft?.result.map((n) => {
+        res.push(n);
+      });
+    });
+  }
+  return res;
+};
+
+export const getNfts = (address) => {
+  const { data, error, isLoading } = useSwr(
+    `${process.env.API_NODE_URL}getNfts?address=${address}`,
+    fetcher
+  );
+
+  const response = sortNfts(data);
+
+  return {
+    data: response,
+    error: error,
+    isLoading: isLoading,
+  };
 };
