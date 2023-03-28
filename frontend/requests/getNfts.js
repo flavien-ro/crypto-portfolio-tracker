@@ -5,7 +5,7 @@ import { fetcher } from "./fetcher";
 const sortNfts = (nfts) => {
   const res = [];
 
-  if (nfts) {
+  if (nfts?.length > 0) {
     nfts?.map((nft) => {
       nft?.result.map((n) => {
         res.push(n);

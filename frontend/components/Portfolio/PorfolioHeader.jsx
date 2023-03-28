@@ -10,10 +10,12 @@ import { fetcher } from "@/requests/fetcher";
 import Loader from "@/utils/Loader";
 import { getWalletBalance } from "@/requests/getWalletInfo";
 
+import { useSelector } from "react-redux";
+
 function PorfolioHeader() {
-  const { data, error, isLoading } = getWalletBalance(
-    "0xeEcFF03e43c1666a56aCEAF96b52005A30fFa62A"
-  );
+  const address = useSelector((state) => state.address.address);
+
+  const { data, error, isLoading } = getWalletBalance(address);
 
   const chainsValue = chainsConstant(data);
 

@@ -11,14 +11,15 @@ import MainTable from "./MainTable";
 
 import Loader from "@/utils/Loader";
 
+import { useSelector } from "react-redux";
+
 const History = () => {
   const [next, setNext] = useState("");
   const [transacNb, setTransacNb] = useState(10);
 
-  const { data, error, isLoading } = getWalletTransactions(
-    "0xeEcFF03e43c1666a56aCEAF96b52005A30fFa62A",
-    next
-  );
+  const address = useSelector((state) => state.address.address);
+
+  const { data, error, isLoading } = getWalletTransactions(address, next);
 
   const handleMoreTokens = () => {
     setTransacNb(data?.length + 1);

@@ -7,11 +7,12 @@ import WalletTokens from "./WalletTokens";
 import Loader from "@/utils/Loader";
 
 import { getWalletBalance } from "@/requests/getWalletInfo";
+import { useSelector } from "react-redux";
 
 const Tokens = () => {
-  const { data, error, isLoading } = getWalletBalance(
-    "0xeEcFF03e43c1666a56aCEAF96b52005A30fFa62A"
-  );
+  const address = useSelector((state) => state.address.address);
+
+  const { data, error, isLoading } = getWalletBalance(address);
 
   return (
     <>

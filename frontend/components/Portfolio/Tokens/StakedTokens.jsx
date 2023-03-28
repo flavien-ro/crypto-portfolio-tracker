@@ -17,13 +17,13 @@ import { numberWithSpaces, isNegative, removeNeg } from "@/utils/utils";
 import { getWalletPositions } from "@/requests/getWalletInfo";
 import Loader from "@/utils/Loader";
 
+import { useSelector } from "react-redux";
+
 const StakedTokens = ({ walletBalance, walletIsLoading }) => {
   const [nextStaked, setNextStaked] = useState(10);
+  const address = useSelector((state) => state.address.address);
 
-  const { data, error, isLoading } = getWalletPositions(
-    "0xeEcFF03e43c1666a56aCEAF96b52005A30fFa62A",
-    "staked"
-  );
+  const { data, error, isLoading } = getWalletPositions(address, "staked");
 
   const handleMoreStaked = () => {
     setNextStaked(data?.length + 1);

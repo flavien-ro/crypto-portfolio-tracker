@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Header from "@/components/Header/Header";
 import Porfolio from "@/components/Portfolio/Porfolio";
-import { getNfts } from "@/requests/getNfts";
-import { getWalletBalance, getWalletPositions } from "@/requests/getWalletInfo";
 
 export default function Home() {
   return (

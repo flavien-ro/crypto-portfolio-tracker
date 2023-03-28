@@ -66,12 +66,11 @@ const RenderNFT = ({ NFTimage, name }) => {
           style={{ objectFit: "contain", borderRadius: "20px" }}
         />
       ) : isValidVideoUrl(NFTimage) ? (
-        <video
-          style={{ width: "180px", height: "180px" }}
-          src={NFTimage}
-          loop
-          autoplay
-        ></video>
+        <video style={{ width: "180px", height: "180px" }} loop autoPlay>
+          <source src={NFTimage} type="video/mp4" />
+          Your browser does not support the video tag. I suggest you upgrade
+          your browser.
+        </video>
       ) : (
         <div
           style={{

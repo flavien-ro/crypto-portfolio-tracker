@@ -6,12 +6,12 @@ import RenderNFT from "./RenderNFT";
 import Loader from "@/utils/Loader";
 import { Grid } from "@mui/material";
 
-const Nfts = () => {
-  const { data, error, isLoading } = getNfts(
-    "0xeEcFF03e43c1666a56aCEAF96b52005A30fFa62A"
-  );
+import { useSelector } from "react-redux";
 
-  console.log(data);
+const Nfts = () => {
+  const address = useSelector((state) => state.address.address);
+
+  const { data, error, isLoading } = getNfts(address);
 
   return (
     <>
