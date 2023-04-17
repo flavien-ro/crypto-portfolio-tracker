@@ -59,33 +59,6 @@ export default function Header(props) {
               Portfolio
             </Link>
           </li>
-          <li>
-            <Link
-              style={{
-                color: page === "bridge" ? "white" : "gray",
-                fontWeight: "bold",
-                fontSize: "18px",
-                textDecoration: "none",
-                marginRight: "25px",
-              }}
-              href="/swap"
-            >
-              Swap
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{
-                color: page === "bridge" ? "white" : "gray",
-                fontWeight: "bold",
-                fontSize: "18px",
-                textDecoration: "none",
-              }}
-              href="/bridge"
-            >
-              Bridge
-            </Link>
-          </li>
         </ul>
       </nav>
       <div
